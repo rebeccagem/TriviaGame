@@ -42,100 +42,88 @@ $(document).ready(function () {
     ///when player clicks an answer
 
     var number;
-
+    var intervalId;
     //move question information into DOM
 
     gameLoop();
 
+    $(".answerButtons").on("click", function () {
+        console.log("HI");
+        console.log(this.value);
+
+        playerGuess = this.value;
+
+        if (playerGuess === allQuestions[i].correctAnswer) {
+            $("#gameScreen").hide();
+            $("#resultsScreen").show();
+            $("#result").text(results[0]);
+            $("#resultImg").attr("src", allQuestions[i].image);
+            stop();
+            i++;
+            setTimeout(gameLoop, 2000);
+
+        }
+        else {
+            $("#result").text(results[1]);
+            $("#resultImg").attr("src", allQuestions[i].image);
+            $("#gameScreen").hide();
+            $("#resultsScreen").show();
+            stop();
+            i++;
+            setTimeout(gameLoop, 2000);
+
+        }
+    });
+
     function gameLoop() {
         $("#gameScreen").show();
         $("#resultsScreen").hide();
-        console.log(i);
         number = 10;
         if (i < allQuestions.length) {
-
             populateDOM(allQuestions[i]);
         }
-        $(".answerButtons").on("click", function () {
-            console.log("HI");
-            console.log(this.value);
-            
-            playerGuess = this.value;
+        timer();
+    }
 
-            if (playerGuess === allQuestions[i].correctAnswer) {
-                console.log("CORRECT");
-                number = 1;
-                decrement();
-                $("#gameScreen").hide();
-                $("#resultsScreen").show();
-                $("#result").text(results[0]);
-                $("#resultImg").attr("src", allQuestions[i].image);
-                // stop();
-                
-                // i++;
-                // setTimeout (gameLoop, 4000);
-                
-            }
-            else {
-                $("#result").text(results[1]);
-                $("#resultImg").attr("src", allQuestions[i].image);
-                $("#gameScreen").hide();
-                $("#resultsScreen").show();
-                // stop();
-                number = 0;
-                // i++;
-                // setTimeout (gameLoop, 4000);
-            }
-        });
-        //ALL THE TIMER STUFF
-        //  Interval Demonstration
-        //  Set our number counter to 100.
-        
-        //  Variable that will hold our interval ID when we execute
-        //  the "run" function
-        var intervalId;
-        //  When the stop button gets clicked, run the stop function.
+    //  When the stop button gets clicked, run the stop function.
+    //  When the resume button gets clicked, execute the run function.    
+    function timer() {
         $("#stop").on("click", stop);
-        //  When the resume button gets clicked, execute the run function.
         $("#resume").on("click", run);
-        //  The run function sets an interval
-        //  that runs the decrement function once a second.
-        //  *****BUG FIX******** 
-        //  Clearing the intervalId prior to setting our new intervalId will not allow multiple instances.
-        function run() {
-            clearInterval(intervalId);
-            intervalId = setInterval(decrement, 1000);
-        }
-        //  The decrement function.
-        function decrement() {
-            //  Decrease number by one.
-            number--;
-            //  Show the number in the #show-number tag.
-            $("#show-number").html("<h2>" + number + "</h2>");
-            //  Once number hits zero...
-            if (number === 0) {
-                //  ...run the stop function.
-                stop();
-                //  Alert the user that time is up.
-                alert("Time Up!");
-               // i++;
-                gameLoop();
-            }
-
-        }
-        //  The stop function
-        function stop() {
-            //  Clears our intervalId
-            //  We just pass the name of the interval
-            //  to the clearInterval function.
-            clearInterval(intervalId);
-        }
-        //  Execute the run function.
         run();
-        //
+    }
+
+    function run() {
+        clearInterval(intervalId);
+        intervalId = setInterval(decrement, 1000);
+    }
+
+    //  The decrement function.//  Decrease number by one.
+    function decrement() {
+        number--;
+        //  Show the number in the #show-number tag.
+        $("#show-number").html("<h2>" + number + "</h2>");
+        //  Once number hits zero...
+        if (number === 0) {
+            //  ...run the stop function.
+            //  Alert the user that time is up.
+            alert("Time Up!");
+            $("#result").text(results[2]);
+            $("#resultImg").attr("src", allQuestions[i].image);
+            $("#gameScreen").hide();
+            $("#resultsScreen").show();
+            stop();
+            i++;
+            setTimeout(gameLoop, 2000);
+        }
 
     }
 
+    //  The stop function and reset the timer
+    function stop() {
+        clearInterval(intervalId);
+        number = 10;
+    }
 
     //register click for correct answer
     function populateDOM(currentQuestion) {
@@ -152,3 +140,51 @@ $(document).ready(function () {
 
 
 });
+
+
+
+    //  Interval Demonstration
+    //  Set our number counter to 100.
+
+    //  Variable that will hold our interval ID when we execute
+    //  the "run" function
+
+    // //  When the stop button gets clicked, run the stop function.
+    // $("#stop").on("click", stop);
+    // //  When the resume button gets clicked, execute the run function.
+    // $("#resume").on("click", run);
+    // //  The run function sets an interval
+    // //  that runs the decrement function once a second.
+    // //  *****BUG FIX******** 
+    // //  Clearing the intervalId prior to setting our new intervalId will not allow multiple instances.
+    // function run() {
+    //     clearInterval(intervalId);
+    //     intervalId = setInterval(decrement, 1000);
+    // }
+    // //  The decrement function.
+    // function decrement() {
+    //     //  Decrease number by one.
+    //     number--;
+    //     //  Show the number in the #show-number tag.
+    //     $("#show-number").html("<h2>" + number + "</h2>");
+    //     //  Once number hits zero...
+    //     if (number === 0) {
+    //         //  ...run the stop function.
+    //         stop();
+    //         //  Alert the user that time is up.
+    //         alert("Time Up!");
+    //         // i++;
+    //         gameLoop();
+    //     }
+
+    // }
+    // //  The stop function
+    // function stop() {
+    //     //  Clears our intervalId
+    //     //  We just pass the name of the interval
+    //     //  to the clearInterval function.
+    //     clearInterval(intervalId);
+    // }
+    // //  Execute the run function.
+    // run();
+    // //
