@@ -1,0 +1,28 @@
+#progBarWrapper {
+    padding-top:0px;
+}
+
+.progress {
+    height: .2rem;
+    padding: 0px;
+    margin: 0px;
+    margin-left: auto; 
+    margin-right:auto;
+}
+
+h2{
+    padding:0;
+    margin:0;
+}
+
+.card {
+    margin-left: auto; 
+    margin-right:auto;
+}
+
+#answers {
+    padding-top:30px;
+    display: flex;
+    justify-content: space-between;
+
+}
