@@ -49,19 +49,21 @@ $(document).ready(function () {
             $("#gameScreen").hide();
             $("#resultsScreen").show();
             $("#restart").hide();
+            $("#gameScreen").hide();
+            $("#show-number").hide();
             $("#result").text(results[0]);
             $("#resultImg").attr("src", allQuestions[i].image);
             correctAnswers++;
             stop();
             i++;
             setTimeout(gameLoop, 2000);
-
         }
         else {
             $("#result").text(results[1]);
             $("#resultImg").attr("src", allQuestions[i].image);
             $("#gameScreen").hide();
             $("#resultsScreen").show();
+            $("#show-number").hide();
             $("#restart").hide();
             stop();
             i++;
@@ -75,6 +77,7 @@ $(document).ready(function () {
         $("#gameScreen").show();
         $("#restart").hide();
         $("#resultsScreen").hide();
+        $("#show-number").show();
         populateDOM(allQuestions[i])
         run();
     }
@@ -87,6 +90,8 @@ $(document).ready(function () {
     $("#restart").on("click", function () {
         $("#gameScreen").show();
         $("#restart").hide();
+        $(".counter").hide();
+        $("#show-number").show();
         unanswered = 0;
         correctAnswers = 0;
         wrongAnswers = 0;
@@ -113,8 +118,8 @@ $(document).ready(function () {
             $("#result").text(results[2]);
             $("#resultImg").attr("src", allQuestions[i].image);
             $("#gameScreen").hide();
+            $("#show-number").hide();
             $("#resultsScreen").show();
-            $("#restart").show();
             stop();
             i++;
             unanswered++;
@@ -150,6 +155,8 @@ $(document).ready(function () {
     function writeStats() {
         $("#gameScreen").hide();
         $("#restart").show();
+        $(".counter").show();
+        $("#show-number").hide();
         $("#correctAnswers").text("Correct Answers: " + correctAnswers);
         $("#wrongAnswers").text("Wrong Answers: " + wrongAnswers);
         $("#unanswered").text("Unanswered: " + unanswered);
