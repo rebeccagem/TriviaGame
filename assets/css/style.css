@@ -15,9 +15,16 @@ h2{
     margin:0;
 }
 
+h1{
+    padding-bottom: 15px;
+    text-align: center;
+}
+
 .card {
     margin-left: auto; 
     margin-right:auto;
+    height:50%px;
+    width:50%;
 }
 
 #answers {

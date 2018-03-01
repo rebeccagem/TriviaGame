@@ -60,7 +60,7 @@ $(document).ready(function () {
             correctAnswers++;
             stop();
             i++;
-            setTimeout(gameLoop, 2000);
+            setTimeout(gameLoop, 52000);
         }
         else {
             $("#result").text(results[1]);
@@ -73,7 +73,7 @@ $(document).ready(function () {
             stop();
             i++;
             wrongAnswers++;
-            setTimeout(gameLoop, 2000);
+            setTimeout(gameLoop, 52000);
 
         }
     });
