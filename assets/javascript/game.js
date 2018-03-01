@@ -9,7 +9,7 @@ $(document).ready(function () {
     //make objects for each question
     var questionOne = {
         question: "What's your name?",
-        answers: ['Sally', 'Bob', 'Allen', 'Kris'],
+        answers: ['A', 'B', 'C', 'D'],
         correctAnswer: 'Allen',
         image: "http://lorempixel.com/400/200/"
     };
@@ -48,6 +48,7 @@ $(document).ready(function () {
         if (playerGuess === allQuestions[i].correctAnswer) {
             $("#gameScreen").hide();
             $("#resultsScreen").show();
+            $("#restart").hide();
             $("#result").text(results[0]);
             $("#resultImg").attr("src", allQuestions[i].image);
             correctAnswers++;
@@ -61,6 +62,7 @@ $(document).ready(function () {
             $("#resultImg").attr("src", allQuestions[i].image);
             $("#gameScreen").hide();
             $("#resultsScreen").show();
+            $("#restart").hide();
             stop();
             i++;
             wrongAnswers++;
@@ -71,6 +73,7 @@ $(document).ready(function () {
 
     function gameLoop() {
         $("#gameScreen").show();
+        $("#restart").hide();
         $("#resultsScreen").hide();
         populateDOM(allQuestions[i])
         run();
@@ -81,7 +84,16 @@ $(document).ready(function () {
 
     $("#answers").on("click", stop);
 
-    $("#resume").on("click", run);
+    $("#restart").on("click", function () {
+        $("#gameScreen").show();
+        $("#restart").hide();
+        unanswered = 0;
+        correctAnswers = 0;
+        wrongAnswers = 0;
+        i = 0;
+        gameLoop();
+
+    });
 
     function run() {
         number = 10;
@@ -102,6 +114,7 @@ $(document).ready(function () {
             $("#resultImg").attr("src", allQuestions[i].image);
             $("#gameScreen").hide();
             $("#resultsScreen").show();
+            $("#restart").show();
             stop();
             i++;
             unanswered++;
@@ -136,10 +149,13 @@ $(document).ready(function () {
 
     function writeStats() {
         $("#gameScreen").hide();
+        $("#restart").show();
         $("#correctAnswers").text("Correct Answers: " + correctAnswers);
         $("#wrongAnswers").text("Wrong Answers: " + wrongAnswers);
         $("#unanswered").text("Unanswered: " + unanswered);
     }
+
+
 
 });
 
