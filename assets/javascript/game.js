@@ -11,29 +11,43 @@ $(document).ready(function () {
 
     //make objects for each question
     var questionOne = {
-        question: "What's your name?",
-        answers: ['A', 'B', 'C', 'D'],
-        correctAnswer: 'Allen',
-        image: "http://lorempixel.com/400/200/"
+        question: "Which one of Jupiter’s moons is the most Earth-like?",
+        answers: ['Io', 'Ganymede', 'Europa', 'Callisto'],
+        correctAnswer: 'Europa',
+        image: "https://media.giphy.com/media/juAyyFrURZkFq/giphy.gif"
     };
 
     var questionTwo = {
-        question: "What's your favorite color?",
-        answers: ['Blue', 'Red', 'Yellow', 'Purple'],
-        correctAnswer: 'Red',
-        image: "http://lorempixel.com/400/200/"
+        question: "Which one of these planets does not have rings?",
+        answers: ['Neptune', 'Venus', 'Saturn', 'Uranus'],
+        correctAnswer: 'Venus',
+        image: "https://media.giphy.com/media/MFRBVdwxheLKw/giphy.gif"
     };
 
     var questionThree = {
-        question: "What is the meaning of life?",
-        answers: ['All', 'Kittens', 'Puppies', '42'],
-        correctAnswer: 'All',
-        image: "http://lorempixel.com/400/200/"
+        question: "Which galaxy is on course to collide with ours?",
+        answers: ['Milky Way', 'Pinwheel Galaxy', 'Black Eye', 'Andromeda'],
+        correctAnswer: 'Andromeda',
+        image: "https://media.giphy.com/media/lHWFnpn51Jy92/giphy.gif"
+    };
+
+    var questionFour = {
+        question: "How long does it take for sunlight to reach earth?",
+        answers: ['8 Minutes', '2 Hours', '6.5 Seconds', '1 Year'],
+        correctAnswer: '8 Minutes',
+        image: "https://media.giphy.com/media/VfQputoAtpIyc/giphy.gif"
+    };
+
+    var questionFive = {
+        question: "What is at the center of our galaxy?",
+        answers: ['Earth', 'A Black Hole', 'The Sun', 'A Super Nova'],
+        correctAnswer: 'A Black Hole',
+        image: "https://media.giphy.com/media/r6TMBbTRPQbHW/giphy.gif"
     };
 
     var intervalId;
 
-    var allQuestions = [questionOne, questionTwo, questionThree];
+    var allQuestions = [questionOne, questionTwo, questionThree, questionFour, questionFive];
 
     var results = ["Correct", "Incorrect", "Time's Up"];
 
@@ -118,6 +132,7 @@ $(document).ready(function () {
 
     //  The decrement function.//  Decrease number by one.
     function decrement() {
+    
         number--;
         updateProgBar();
         //  Show the number in the #show-number tag.
