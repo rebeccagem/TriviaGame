@@ -14,7 +14,7 @@ $(document).ready(function () {
         question: "Which one of Jupiter’s moons is the most Earth-like?",
         answers: ['Io', 'Ganymede', 'Europa', 'Callisto'],
         correctAnswer: 'Europa',
-        image: "https://media.giphy.com/media/juAyyFrURZkFq/giphy.gif"
+        image: "https://media.giphy.com/media/86JRLeRAE0oXm/giphy.gif"
     };
 
     var questionTwo = {
@@ -26,7 +26,7 @@ $(document).ready(function () {
 
     var questionThree = {
         question: "Which galaxy is on course to collide with ours?",
-        answers: ['Milky Way', 'Pinwheel Galaxy', 'Black Eye', 'Andromeda'],
+        answers: ['Milky Way', 'Messier 81', 'Segue', 'Andromeda'],
         correctAnswer: 'Andromeda',
         image: "https://media.giphy.com/media/lHWFnpn51Jy92/giphy.gif"
     };
@@ -39,8 +39,8 @@ $(document).ready(function () {
     };
 
     var questionFive = {
-        question: "What is at the center of our galaxy?",
-        answers: ['Earth', 'A Black Hole', 'The Sun', 'A Super Nova'],
+        question: "What is at the center of our galaxy, the Milky Way?",
+        answers: ['Earth', 'Black Hole', 'The Sun', 'Supernova'],
         correctAnswer: 'A Black Hole',
         image: "https://media.giphy.com/media/r6TMBbTRPQbHW/giphy.gif"
     };
@@ -74,7 +74,7 @@ $(document).ready(function () {
             correctAnswers++;
             stop();
             i++;
-            setTimeout(gameLoop, 2000);
+            setTimeout(gameLoop, 6000);
         }
         else {
             $("#result").text(results[1]);

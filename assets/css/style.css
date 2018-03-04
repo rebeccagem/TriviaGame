@@ -14,22 +14,38 @@ h2{
     padding:5px;
     margin:0;
     font-size: 20px;
+    color: aliceblue;
 }
 
 h1{
     padding-bottom: 15px;
+    padding-top:15px;
     text-align: center;
+    color: aliceblue;
 }
 
 .card {
     margin-left: auto; 
     margin-right:auto;
-    height:50%;
+    height:350px;
     width:50%;
+    background-color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(./starsBackground.jpg)
+}
+
+.card-body {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+
 }
 
 #answers {
     padding-top:30px;
+    padding-bottom: 100px;
     padding-left:30px;
     padding-right:30px;
     display: flex;
@@ -38,9 +54,23 @@ h1{
 }
 
 #counterText {
-    margin-left:30px;
+    padding-top:50px;
+    color: aliceblue;
 }
 
 #resultImg {
     max-width:300px;
+    
+}
+
+#result {
+    font-size:25px;
+}
+
+body {
+    background-color: #d3ebf8;
+}
+
+#question {
+    padding-top: 80px;
 }
