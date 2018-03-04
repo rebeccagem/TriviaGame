@@ -33,7 +33,10 @@ h1{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(./starsBackground.jpg)
+    background-image: url(./starsBackground.jpg);
+    border: 4px solid #ffffff;
+    border-radius: .85rem;
+    box-shadow: 6px 7px 28px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .card-body {
@@ -55,7 +58,7 @@ h1{
 
 #counterText {
     padding-top:50px;
-    color: aliceblue;
+    color: #f0f8ff;
 }
 
 #resultImg {
@@ -73,4 +76,8 @@ body {
 
 #question {
     padding-top: 80px;
+}
+
+#restart {
+    margin-bottom:50px;
 }
